@@ -73,7 +73,7 @@ public class PlayerController : MonoBehaviour
 	{
 		countText.text = "Count: " + count.ToString();
 
-		if (count >= 10)
+		if (count >= 15)
 		{
 			// Set the text value of your 'doneText'
 			keyTextObject.SetActive(true);

@@ -7,15 +7,13 @@ public class GameManager : MonoBehaviour
 
     public static GameManager instance = null;
     public GameObject TimerText;
+    public GameObject keyText;
+    public GameObject youWinText;
     public float resetDelay;
 
     void Update()
     {
-        if (SceneManager.GetActiveScene().buildIndex == 4)
 
-        {
-            SceneManager.LoadScene("MenuScene");
-        }
     }
 
 
@@ -31,6 +29,9 @@ public class GameManager : MonoBehaviour
     {
         Time.timeScale = 0;
         TimerText.SetActive(false);
+        keyText.SetActive(false);
+        youWinText.SetActive(true);
+
         Invoke("Reset", resetDelay);
     }
 
