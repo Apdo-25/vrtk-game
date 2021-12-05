@@ -1,0 +1,45 @@
+﻿using UnityEngine;
+using System.Collections;
+using UnityEngine.SceneManagement;
+
+public class GameManager : MonoBehaviour
+{
+
+    public static GameManager instance = null;
+    public GameObject youWinText;
+    public GameObject TimerText;
+    public float resetDelay;
+
+    void Update()
+    {
+        if (SceneManager.GetActiveScene().buildIndex == 4)
+
+        {
+            SceneManager.LoadScene("MenuScene");
+        }
+    }
+
+
+    void Awake()
+    {
+        if (instance == null)
+            instance = this;
+        else if (instance != null)
+            Destroy(gameObject);
+
+    }
+    public void Win()
+    {
+        youWinText.SetActive(true);
+        Time.timeScale = 0;
+        TimerText.SetActive(false);
+        Invoke("Reset", resetDelay);
+    }
+
+    void Reset()
+    {
+        {
+            SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
+        }
+    }
+}
