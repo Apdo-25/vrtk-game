@@ -6,7 +6,6 @@ public class GameManager : MonoBehaviour
 {
 
     public static GameManager instance = null;
-    public GameObject youWinText;
     public GameObject TimerText;
     public float resetDelay;
 
@@ -30,7 +29,6 @@ public class GameManager : MonoBehaviour
     }
     public void Win()
     {
-        youWinText.SetActive(true);
         Time.timeScale = 0;
         TimerText.SetActive(false);
         Invoke("Reset", resetDelay);
@@ -39,7 +37,7 @@ public class GameManager : MonoBehaviour
     void Reset()
     {
         {
-            SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
+            SceneManager.LoadScene("MenuScene");
         }
     }
 }
