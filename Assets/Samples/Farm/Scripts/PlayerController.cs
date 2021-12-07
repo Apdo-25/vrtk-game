@@ -10,6 +10,7 @@ public class PlayerController : MonoBehaviour
 	// Create public variables for player speed, and for the Text UI game objects
 	public float speed;
 	public TextMeshProUGUI countText;
+	public GameObject countObject;
 	public GameObject keyTextObject;
 	public GameObject keyObject;
 
@@ -76,6 +77,7 @@ public class PlayerController : MonoBehaviour
 		if (count >= 15)
 		{
 			// Set the text value of your 'doneText'
+			countObject.SetActive(false);
 			keyTextObject.SetActive(true);
 			keyObject.SetActive(true);
 		}
